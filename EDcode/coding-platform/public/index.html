@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaYaCODE - Python Kodlama Platformu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1e1e1e; color: #fff; height: 100vh; overflow: hidden; }
+        .header { background: #2d2d30; padding: 10px 20px; border-bottom: 1px solid #3e3e42; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { color: #4CAF50; font-size: 24px; }
+        .header .info { color: #FFD700; font-size: 14px; }
+        .main-container { display: flex; height: calc(100vh - 60px); }
+        .editor-section { flex: 1; display: flex; flex-direction: column; border-right: 1px solid #3e3e42; }
+        .editor-header { background: #2d2d30; padding: 10px 15px; border-bottom: 1px solid #3e3e42; display: flex; justify-content: space-between; align-items: center; }
+        .editor-actions { display: flex; gap: 10px; }
+        .btn { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.3s; }
+        .btn:hover { background: #45a049; }
+        .btn-secondary { background: #2196F3; }
+        .btn-secondary:hover { background: #1976D2; }
+        .btn-warning { background: #FF9800; }
+        .btn-warning:hover { background: #F57C00; }
+        .CodeMirror { height: 100%; font-size: 14px; }
+        .console-section { width: 400px; display: flex; flex-direction: column; background: #252526; }
+        .console-header { background: #2d2d30; padding: 10px 15px; border-bottom: 1px solid #3e3e42; display: flex; justify-content: space-between; align-items: center; }
+        .console-output { flex: 1; padding: 15px; font-family: 'Courier New', monospace; font-size: 13px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
+        .package-manager { border-top: 1px solid #3e3e42; padding: 15px; }
+        .package-input { display: flex; gap: 10px; margin-bottom: 10px; }
+        .package-input input { flex: 1; background: #3c3c3c; color: #fff; border: 1px solid #555; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+        .package-list { max-height: 150px; overflow-y: auto; }
+        .package-item { background: #3c3c3c; margin: 5px 0; padding: 8px 12px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+        .filename-input { display: flex; gap: 10px; align-items: center; }
+        .filename-input input { background: #3c3c3c; color: #fff; border: 1px solid #555; padding: 6px 10px; border-radius: 4px; font-size: 12px; width: 150px; }
+        .warning { color: #FF9800; }
+        .error { color: #f44336; }
+        .success { color: #4CAF50; }
+        .info { color: #2196F3; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🐍 CaYaCODE - Python Platformu</h1>
+        <div class="info">Ctrl+Enter ile kodu çalıştırabilirsiniz</div>
+    </div>
+    <div class="main-container">
+        <div class="editor-section">
+            <div class="editor-header">
+                <span>Python Kod Editörü</span>
+                <div class="editor-actions">
+                    <button class="btn" onclick="runCode()">▶ Çalıştır</button>
+                    <div class="filename-input">
+                        <input type="text" id="filename" placeholder="dosya_adi" value="main">
+                        <button class="btn btn-warning" onclick="buildExecutable()">📦 EXE İndir</button>
+                    </div>
+                </div>
+            </div>
+            <textarea id="codeEditor"></textarea>
+        </div>
+        <div class="console-section">
+            <div class="console-header">
+                <span>🖥️ Konsol</span>
+                <button class="btn btn-secondary" onclick="clearConsole()">Temizle</button>
+            </div>
+            <div class="console-output" id="consoleOutput">CaYaCODE Platform - Python Kodlama Ortamı ✨
+Kodunuzu yazın ve çalıştır butonuna tıklayın.
+</div>
+            <div class="package-manager">
+                <h4>📦 Paket Yöneticisi</h4>
+                <div class="package-input">
+                    <input type="text" id="packageInput" placeholder="Paket adı (örn: requests, numpy)">
+                    <button class="btn btn-secondary" onclick="addPackage()">Ekle</button>
+                </div>
+                <div class="package-list" id="packageList"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

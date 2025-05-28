@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  python-service:
+    build:
+      context: ./backend/python-service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/python-service:/app
+    environment:
+      - FLASK_ENV=development
+
+  csharp-service:
+    build:
+      context: ./backend/csharp-service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:80"
+    volumes:
+      - ./backend/csharp-service:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+
+networks:
+  default:
+    driver: bridge
