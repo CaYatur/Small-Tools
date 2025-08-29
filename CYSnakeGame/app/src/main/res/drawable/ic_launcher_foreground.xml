@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Yılan başı -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M45,45h8v8h-8z" />
+    
+    <!-- Yılan gövdesi -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M37,45h8v8h-8z" />
+    
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M29,45h8v8h-8z" />
+    
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M21,45h8v8h-8z" />
+
+    <!-- Elma -->
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M61,45h8v8h-8z" />
+    
+    <!-- Elma sapı -->
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M63,43h4v2h-4z" />
+
+</vector>

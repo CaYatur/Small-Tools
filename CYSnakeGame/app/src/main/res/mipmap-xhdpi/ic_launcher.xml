@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Arka plan -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M0,0h48v48h-48z"/>
+
+    <!-- Yılan (yeşil pixel'ler) -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M 12,24 L 16,24 L 20,24 L 24,24 L 28,24 L 32,24 L 32,20 L 32,16 L 28,16 L 24,16 L 20,16 L 16,16 L 12,16 L 12,20 Z"/>
+
+    <!-- Yılan başı -->
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M 32,20 L 36,20 L 36,24 L 32,24 Z"/>
+
+    <!-- Elma (kırmızı) -->
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M 40,16 L 44,16 L 44,20 L 40,20 Z"/>
+</vector>
