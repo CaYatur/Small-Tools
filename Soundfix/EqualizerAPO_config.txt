@@ -1,0 +1,29 @@
+# =============================================================================
+# SoundFix - Equalizer APO çıkış (hoparlör) hum filtresi
+# -----------------------------------------------------------------------------
+# Bu içerik, sistem genelindeki SES ÇIKIŞINA (hoparlör/jack) uygulanır.
+# Kurulum sonrası şu dosyanın içine YAPIŞTIR:
+#   C:\Program Files\EqualizerAPO\config\config.txt
+# (veya bu dosyayı oraya kopyalayıp config.txt içine: Include: EqualizerAPO_config.txt)
+#
+# NOT: Bu filtreler DAC'tan ÖNCE (dijital aşamada) çalışır. Saf analog ground
+# loop hum'ı (sessizlikte bile duyulan) bunlarla GİTMEZ - aşağıdaki sessizlik
+# testini yap. Dijital zincirde olan bileşeni ise bastırır.
+# =============================================================================
+
+# --- 50 Hz şebeke hum'u ve harmonikleri için çentik (notch) filtreler ---
+# Q büyük = dar bant = müziğe az zarar. Tam oturmazsa Q'yu 15-20'ye düşür.
+Filter: ON NO Fc 50 Hz Q 30
+Filter: ON NO Fc 100 Hz Q 30
+Filter: ON NO Fc 150 Hz Q 30
+Filter: ON NO Fc 200 Hz Q 30
+
+# --- İsteğe bağlı: çok düşük frekans gürültüsünü/uğultuyu kes (20 Hz altı) ---
+# Filter: ON HP Fc 20 Hz
+
+# --- Alternatif yöntem: notch yerine daha kontrollü peaking ile bastırma ---
+# (Bir kullanıcı 50 Hz'de -30 dB / Q 25 ile hum'u neredeyse yok etmiş.)
+# Filter: ON PK Fc 50 Hz Gain -30 dB Q 25
+# Filter: ON PK Fc 100 Hz Gain -30 dB Q 25
+# Filter: ON PK Fc 150 Hz Gain -30 dB Q 25
+# Filter: ON PK Fc 200 Hz Gain -30 dB Q 25
