@@ -1,0 +1,13 @@
+__pycache__/
+venv/
+.venv/
+*.pyc
+.gradle/
+build/
+local.properties
+*.apk
+node_modules/
+.env
+*.log
+uploads/
+data/
